@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "author": "Smart Home BBD",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -100,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 160,
+      "left": 220,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 120,
+      "left": 330,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -100,
+      "left": -180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -60,
+      "left": -180,
+      "attrs": { "value": "10000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "fan1",
+      "top": 240,
+      "left": 330,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 340,
+      "left": 300,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    ["esp:TX0", "$serialMonitor:RX", "", []],
+    ["esp:RX0", "$serialMonitor:TX", "", []],
+
+    ["esp:D18", "servo1:PWM", "orange", []],
+    ["esp:3V3", "servo1:V+", "red", []],
+    ["esp:GND.1", "servo1:GND", "black", []],
+
+    ["esp:D2", "r1:1", "green", []],
+    ["r1:2", "led1:A", "green", []],
+    ["led1:C", "esp:GND.1", "black", []],
+
+    ["esp:D4", "dht1:SDA", "blue", []],
+    ["esp:3V3", "dht1:VCC", "red", []],
+    ["esp:GND.1", "dht1:GND", "black", []],
+    ["dht1:VCC", "r2:1", "red", []],
+    ["r2:2", "dht1:SDA", "yellow", []],
+
+    ["esp:D5", "fan1:A", "purple", []],
+    ["fan1:C", "esp:GND.2", "black", []],
+
+    ["esp:D19", "bz1:1", "yellow", []],
+    ["esp:GND.2", "bz1:2", "black", []]
+  ],
+  "dependencies": {}
+}
