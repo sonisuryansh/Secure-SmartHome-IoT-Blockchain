@@ -1,5 +1,5 @@
 # Steps<p align="center">
-  <img src="[https://github.com/user-attachments/assets/737b9488-faca-4d11-8f56-d99f877b5995]" alt="Smart Home Dashboard" width="100%">
+  <img src="https://github.com/user-attachments/assets/737b9488-faca-4d11-8f56-d99f877b5995" alt="Smart Home Dashboard" width="100%">
 </p>
 
 <h1 align="center">Decentralized Smart Home Relayer System</h1>
